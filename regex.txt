@@ -1,0 +1,42 @@
+latin, uppercase:       [A-Z]
+                        [:upper:]       *
+                        \u              **
+
+latin, lowercase:       [a-z]
+                        [:lower:]
+                        \l
+
+latin, mixed case:      [A-Za-z]
+                        [:alpha:]
+                        \a
+
+base64:                 [A-Za-z0-9+/=]
+
+ascii:                  [\x00-\x7f]
+
+ascii (printable):      [!"#$%&'()*+,-./0-9:;<=>?@A-Z[\\\]^_`a-z{|}~ ]
+                        [\x21-\x7e]
+
+hex:                    [0-9A-Fa-f]
+                        [:xdigit:]
+                        \x
+
+hex (0x or x prefix):   [0?x0-9A-Fa-f]
+
+numbers:                [0-9]
+                        [:digit:]
+                        \d
+
+octal:                  [0-7]
+                        \o
+
+control characters:     [\x00-\x1f]
+                        [:cntrl:]
+
+* These character classes are used within collections. e.g. to search for
+  letters, you would search for [[:alpha:]]
+
+** Character class atoms like \d are much faster than collections like [0-9]
+
+NOTE: This is written using Vim regex but should be mostly applicable to other
+environments.
